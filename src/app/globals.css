@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-border-default: var(--border-color);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent-green: #238636;
+  --color-accent-green-hover: #3fb950;
+  --color-accent-yellow: #d29922;
+  --color-accent-red: #da3633;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --color-card: var(--card-bg);
+  --color-card-foreground: var(--text-primary);
+  --color-muted: var(--bg-tertiary);
+  --color-muted-foreground: var(--text-secondary);
+  --color-primary: #238636;
+  --color-primary-foreground: #ffffff;
+  --color-border: var(--border-color);
+  --color-input: var(--bg-tertiary);
+  --color-ring: #3fb950;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  * {
+    @apply border-border-default;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-ring) 50%, transparent);
+  outline-offset: 2px;
+}
+
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --card-bg: #161b22;
+  --hover-bg: #21262d;
+  --border-color: #30363d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --bg-color: #000500;
+  --light-color: #00ff7f;
+  --glow-color-1: rgba(0, 255, 127, 0.8);
+  --glow-color-2: rgba(60, 255, 157, 0.6);
+}
+
+.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --bg-tertiary: #eaeef2;
+  --card-bg: #ffffff;
+  --hover-bg: #f3f4f6;
+  --border-color: #d0d7de;
+  --text-primary: #1f2328;
+  --text-secondary: #656d76;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-tertiary) transparent;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@keyframes float-up {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-80px) scale(1.2); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(35, 134, 54, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(35, 134, 54, 0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+@keyframes skeleton-pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes slide-up-fade {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes xp-slide {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-60px); }
+}
+
+@keyframes live-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-float-up { animation: float-up 1.2s ease-out forwards; }
+.animate-pulse-glow { animation: pulse-glow 2s infinite; }
+.animate-shake { animation: shake 0.4s ease-out; }
+.animate-skeleton { animation: skeleton-pulse 1.5s ease-in-out infinite; }
+.animate-slide-up { animation: slide-up-fade 0.3s ease-out; }
+.animate-xp-slide { animation: xp-slide 1s ease-out forwards; }
+.animate-live-dot { animation: live-dot 1.5s ease-in-out infinite; }
+
+/* ─── Aurora Scene ──────────────────────────────────────── */
+@keyframes rise {
+  0%   { transform: translateY(100%); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translateY(-10%); opacity: 0; }
+}
+
+@keyframes fade {
+  0%,100% { opacity: 0; }
+  5%,80%  { opacity: 0.7; }
+}
+
+@keyframes floorGlow {
+  0%,100% { transform: scale(0.9); opacity: 0.7; }
+  50%     { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes mainGlow {
+  from { opacity: 0.6; filter: blur(25px); }
+  to   { opacity: 0.8; filter: blur(15px); }
+}
+
+@keyframes moveGrid {
+  from { background-position: 0 0; }
+  to   { background-position: -80px -40px; }
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(0deg, var(--bg-color) 0%, transparent 100%);
+}
+.floor::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(0deg, var(--light-color) 0%, transparent 100%);
+  animation: floorGlow 3s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.main-column {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 40%;
+  background: linear-gradient(0deg, var(--light-color) 0%, transparent 100%);
+  animation: mainGlow 2s ease-in-out infinite alternate;
+}
+
+.light-stream-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.light-beam {
+  position: absolute;
+  bottom: -10%;
+  height: 100%;
+  background: linear-gradient(0deg, transparent 0%, var(--light-color) 50%, transparent 100%);
+  animation: rise var(--rise, 5s) linear infinite,
+             fade var(--fade, 5s) linear infinite,
+             drop var(--drop, 4s) ease-in infinite;
+  will-change: transform, opacity;
+}

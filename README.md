@@ -1,5 +1,7 @@
 # LS Learn — Level Up Your Developer Skills Daily, Free
 
+> Built by Girish Lade — https://ladestack.in
+
 **LS Learn** is a full-stack developer skill-building platform with daily challenges across JavaScript, TypeScript, React, Python, DevOps, CSS, SQL, and System Design. Solve questions in four formats (MCQ, Theory, Code Snippets, Projects), earn XP, maintain streaks, and track your progress — all in a gamified, single-page application.
 
 ## Tech Stack
@@ -185,3 +187,7 @@ The app deploys seamlessly to **Vercel** (or any Node.js/Next.js host):
 ## License
 
 MIT
+
+---
+
+**Built by Girish Lade** — https://ladestack.in

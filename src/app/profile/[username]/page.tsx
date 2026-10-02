@@ -3,6 +3,11 @@
 import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 
+export const dynamicParams = false;
+export function generateStaticParams() {
+  return [];
+}
+
 export default function ProfileRedirect() {
   const params = useParams<{ username: string }>();
   useEffect(() => {

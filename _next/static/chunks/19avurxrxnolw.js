@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,66606,o=>{"use strict";var t=o.i(71645);o.s(["default",0,function(){return(0,t.useEffect)(()=>{window.location.replace("/#/onboarding")},[]),null}])}]);
